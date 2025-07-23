@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="de">
 <head>
@@ -13,6 +14,7 @@
   <header>
     <h1 id="title">Antidopamin – Dein Dopamin-Selbsttracker</h1>
     <button id="langSwitch">🇩🇪 / 🇬🇧</button>
+    <button onclick="openModal()">💡 Tipps & Tricks</button>
   </header>
   <main>
     <section>
@@ -42,6 +44,22 @@
       <canvas id="progressChart" width="400" height="200"></canvas>
     </section>
   </main>
+
+  <!-- Tipps & Tricks Modal -->
+  <div id="tipsModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal()">&times;</span>
+      <h2>💡 Tipps & Tricks von Psychologen</h2>
+      <div id="tipCategories">
+        <button onclick="showTips('detox')">🔌 Digital Detox</button>
+        <button onclick="showTips('mindfulness')">🧘 Achtsamkeit</button>
+        <button onclick="showTips('psychology')">🧠 Psychologie</button>
+        <button onclick="showTips('movement')">🏃 Bewegung</button>
+      </div>
+      <div id="tipsContent"></div>
+    </div>
+  </div>
+
   <script src="script.js"></script>
 </body>
 </html>
