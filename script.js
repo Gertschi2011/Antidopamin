@@ -1,6 +1,7 @@
 
 const langSwitch = document.getElementById("langSwitch");
 let currentLang = "de";
+let activityOptions = JSON.parse(localStorage.getItem("activityOptions") || "[]");
 
 async function loadTranslations() {
     const res = await fetch("translations.json");
@@ -25,17 +26,34 @@ langSwitch.addEventListener("click", async () => {
     updateLabels(translations, currentLang);
 });
 
-async function init() {
-    const translations = await loadTranslations();
-    updateLabels(translations, currentLang);
-    loadChart();
+function populateDropdown() {
+    const dropdown = document.getElementById("activityDropdown");
+    dropdown.innerHTML = "";
+    activityOptions.forEach(opt => {
+        const option = document.createElement("option");
+        option.value = opt;
+        option.textContent = opt;
+        dropdown.appendChild(option);
+    });
+}
+
+function addCustomActivity() {
+    const input = document.getElementById("customActivity");
+    const value = input.value.trim();
+    if (value && !activityOptions.includes(value)) {
+        activityOptions.push(value);
+        localStorage.setItem("activityOptions", JSON.stringify(activityOptions));
+        populateDropdown();
+        input.value = "";
+    }
 }
 
 function saveData() {
     const entry = {
         date: new Date().toLocaleDateString(),
         mood: document.getElementById("mood").value,
-        energy: document.getElementById("energy").value
+        energy: document.getElementById("energy").value,
+        activity: document.getElementById("activityDropdown").value
     };
     let data = JSON.parse(localStorage.getItem("entries") || "[]");
     data.push(entry);
@@ -69,6 +87,17 @@ function loadChart() {
             ]
         }
     });
+}
+
+async function init() {
+    const translations = await loadTranslations();
+    updateLabels(translations, currentLang);
+    if (activityOptions.length === 0) {
+        activityOptions = ["Spaziergang", "Meditation", "Buch gelesen", "Gespräch", "Musik", "Sport"];
+        localStorage.setItem("activityOptions", JSON.stringify(activityOptions));
+    }
+    populateDropdown();
+    loadChart();
 }
 
 window.onload = init;
