@@ -1,48 +1,47 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Antidopamin</title>
-    <link rel="manifest" href="manifest.json">
-    <link rel="stylesheet" href="style.css">
-    <link rel="icon" href="icons/icon-192.png">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Antidopamin</title>
+  <link rel="manifest" href="manifest.json" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="icons/icon-192.png" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
-    <header>
-        <h1 id="title">Antidopamin – Dein Dopamin-Selbsttracker</h1>
-        <button id="langSwitch" aria-label="Sprache wechseln">🇩🇪 / 🇬🇧</button>
-    </header>
-    <main>
-        <section id="moodSection">
-            <h2 id="moodLabel">Wie fühlst du dich heute?</h2>
-            <label for="mood" class="visually-hidden">Stimmung</label>
-            <input type="range" id="mood" min="1" max="10" value="5">
-        </section>
-        <section id="energySection">
-            <h2 id="energyLabel">Energielevel</h2>
-            <label for="energy" class="visually-hidden">Energie</label>
-            <input type="range" id="energy" min="1" max="10" value="5">
-        </section>
-        <section id="socialSection">
-            <h2 id="socialLabel">Social Media verwendet?</h2>
-            <input type="checkbox" id="usedSocial">
-            <label for="usedSocial">Ja</label>
-            <input type="text" id="whyUsed" placeholder="Warum geöffnet?">
-            <input type="text" id="afterFeel" placeholder="Gefühl danach?">
-        </section>
-        <section id="activitySection">
-            <h2 id="activityLabel">Natürliche Aktivitäten</h2>
-            <label for="activities" class="visually-hidden">Aktivitäten</label>
-            <textarea id="activities" rows="4" placeholder="Spaziergang, Buch lesen, Meditation..."></textarea>
-        </section>
-        <section id="reflectionSection">
-            <h2 id="reflectionLabel">Reflexion & Fortschritt</h2>
-            <button id="saveBtn">Speichern</button>
-            <canvas id="progressChart" width="400" height="200"></canvas>
-        </section>
-    </main>
-    <script src="script.js"></script>
+  <header>
+    <h1 id="title">Antidopamin – Dein Dopamin-Selbsttracker</h1>
+    <button id="langSwitch">🇩🇪 / 🇬🇧</button>
+  </header>
+  <main>
+    <section>
+      <h2 id="moodLabel">Wie fühlst du dich heute?</h2>
+      <input type="range" id="mood" min="1" max="10" value="5"/>
+    </section>
+    <section>
+      <h2 id="energyLabel">Energielevel</h2>
+      <input type="range" id="energy" min="1" max="10" value="5"/>
+    </section>
+    <section>
+      <h2 id="socialLabel">Social Media verwendet?</h2>
+      <input type="checkbox" id="usedSocial"/> <label for="usedSocial">Ja</label>
+      <input type="text" id="whyUsed" placeholder="Warum geöffnet?"/>
+      <input type="text" id="afterFeel" placeholder="Gefühl danach?"/>
+    </section>
+    <section>
+      <h2 id="activityLabel">Natürliche Aktivitäten</h2>
+      <label for="activityDropdown">Ausgewählte Aktivität:</label>
+      <select id="activityDropdown"></select>
+      <input type="text" id="customActivity" placeholder="Sonstige Aktivität..."/>
+      <button onclick="addCustomActivity()">Zur Liste hinzufügen</button>
+    </section>
+    <section>
+      <h2 id="reflectionLabel">Reflexion & Fortschritt</h2>
+      <button onclick="saveData()">Speichern</button>
+      <canvas id="progressChart" width="400" height="200"></canvas>
+    </section>
+  </main>
+  <script src="script.js"></script>
 </body>
 </html>
