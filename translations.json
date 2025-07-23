@@ -1,0 +1,26 @@
+{
+  "de": {
+    "title": "Antidopamin – Dein Dopamin-Selbsttracker",
+    "mood": "Wie fühlst du dich heute?",
+    "energy": "Energielevel",
+    "social_media": "Social Media verwendet?",
+    "why_opened": "Warum geöffnet?",
+    "after_effect": "Gefühl danach?",
+    "activities": "Natürliche Aktivitäten",
+    "reflection": "Reflexion & Fortschritt",
+    "chart_title": "Verlauf der letzten Tage",
+    "language_switch": "Sprache wechseln"
+  },
+  "en": {
+    "title": "Antidopamin – Your Dopamine Self-Tracker",
+    "mood": "How do you feel today?",
+    "energy": "Energy level",
+    "social_media": "Used social media?",
+    "why_opened": "Why did you open it?",
+    "after_effect": "Feeling afterwards?",
+    "activities": "Natural Activities",
+    "reflection": "Reflection & Progress",
+    "chart_title": "Last Days Overview",
+    "language_switch": "Switch Language"
+  }
+}
